@@ -1,0 +1,393 @@
+<html>
+								<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
+							<head><style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lato:wght@400;700&display=swap');
+
+  .mp-root { font-family:'Lato',sans-serif; color:var(--color-text-primary); max-width:860px; margin:0 auto; padding:0 0 2rem; }
+
+  .mp-breadcrumb { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--color-text-secondary); margin-bottom:1.25rem; }
+  .mp-breadcrumb a { color:#1a6eab; text-decoration:none; font-weight:600; }
+  .mp-breadcrumb a:hover { text-decoration:underline; }
+
+  .mp-module-bar { background:#1a6eab; border-radius:var(--border-radius-lg); padding:14px 20px; display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem; }
+  .mp-module-bar-left { display:flex; align-items:center; gap:12px; }
+  .mp-mod-badge { background:rgba(255,255,255,0.18); color:white; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:4px 10px; border-radius:99px; }
+  .mp-module-bar h2 { font-family:'Nunito',sans-serif; font-size:17px; font-weight:800; color:white; margin:0; }
+  .mp-time-pill { display:flex; align-items:center; gap:5px; background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.92); font-size:12px; padding:5px 12px; border-radius:99px; flex-shrink:0; }
+
+  .mp-section { margin-bottom:1.5rem; }
+  .mp-section-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; padding-bottom:8px; border-bottom:0.5px solid var(--color-border-tertiary); }
+  .mp-section-head i { color:#1a6eab; font-size:20px; }
+  .mp-section-head h3 { font-family:'Nunito',sans-serif; font-size:16px; font-weight:700; margin:0; color:var(--color-text-primary); }
+
+  .mp-callout { background:#eff6ff; border-left:3px solid #1a6eab; border-radius:0 var(--border-radius-md) var(--border-radius-md) 0; padding:12px 16px; font-size:14px; color:#1a4e78; margin-bottom:1.25rem; display:flex; align-items:flex-start; gap:10px; }
+  .mp-callout i { font-size:18px; flex-shrink:0; margin-top:1px; }
+
+  /* Support category pills */
+  .mp-cat-pills { display:flex; gap:8px; margin-bottom:1.25rem; flex-wrap:wrap; }
+  .mp-cat-pill { display:flex; align-items:center; gap:7px; padding:8px 16px; border-radius:99px; font-size:13px; font-weight:700; font-family:'Nunito',sans-serif; cursor:pointer; border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-secondary); transition:all 0.15s; }
+  .mp-cat-pill:hover { border-color:#1a6eab; color:#1a6eab; }
+  .mp-cat-pill.active-academic { background:#1a6eab; color:white; border-color:#1a6eab; }
+  .mp-cat-pill.active-student { background:#0f6e56; color:white; border-color:#0f6e56; }
+  .mp-cat-pill.active-tech { background:#854f0b; color:white; border-color:#854f0b; }
+
+  .mp-support-panel { display:none; }
+  .mp-support-panel.active { display:block; }
+
+  /* Service cards */
+  .mp-service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-bottom:1rem; }
+  .mp-service-card { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:16px; transition:border-color 0.15s; }
+  .mp-service-card:hover { border-color:#1a6eab; }
+  .mp-service-card.teal:hover { border-color:#0f6e56; }
+  .mp-service-card.amber:hover { border-color:#854f0b; }
+
+  .mp-service-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:10px; }
+  .mp-service-icon.blue { background:#dbeafe; color:#1a6eab; }
+  .mp-service-icon.teal { background:#d1fae5; color:#0f6e56; }
+  .mp-service-icon.amber { background:#fef3c7; color:#854f0b; }
+
+  .mp-service-name { font-family:'Nunito',sans-serif; font-weight:800; font-size:14px; margin-bottom:4px; color:var(--color-text-primary); }
+  .mp-service-desc { font-size:12px; color:var(--color-text-secondary); line-height:1.55; margin-bottom:10px; }
+
+  .mp-service-contact { display:flex; flex-direction:column; gap:5px; }
+  .mp-contact-row { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--color-text-secondary); }
+  .mp-contact-row i { font-size:14px; flex-shrink:0; }
+  .mp-contact-row a { color:#1a6eab; text-decoration:none; }
+  .mp-contact-row a:hover { text-decoration:underline; }
+
+  .mp-service-tag { display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:11px; font-weight:700; padding:3px 9px; border-radius:99px; }
+  .mp-service-tag.blue { background:#dbeafe; color:#1a4e78; }
+  .mp-service-tag.teal { background:#d1fae5; color:#065f46; }
+  .mp-service-tag.amber { background:#fef3c7; color:#78350f; }
+
+  /* Scenario section */
+  .mp-scenarios { display:flex; flex-direction:column; gap:10px; }
+  .mp-scenario { border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); overflow:hidden; }
+  .mp-scenario-q { padding:14px 16px; display:flex; align-items:flex-start; gap:12px; cursor:pointer; background:var(--color-background-secondary); transition:background 0.12s; }
+  .mp-scenario-q:hover { background:var(--color-background-primary); }
+  .mp-scenario-icon { font-size:18px; color:#1a6eab; flex-shrink:0; margin-top:1px; }
+  .mp-scenario-text { font-size:14px; font-weight:700; font-family:'Nunito',sans-serif; color:var(--color-text-primary); flex:1; }
+  .mp-scenario-chevron { font-size:16px; color:var(--color-text-secondary); transition:transform 0.2s; flex-shrink:0; }
+  .mp-scenario.open .mp-scenario-chevron { transform:rotate(180deg); }
+  .mp-scenario-answer { display:none; padding:14px 16px; font-size:13px; line-height:1.65; color:var(--color-text-primary); border-top:0.5px solid var(--color-border-tertiary); background:var(--color-background-primary); }
+  .mp-scenario.open .mp-scenario-answer { display:block; }
+  .mp-answer-tag { display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:700; padding:3px 10px; border-radius:99px; background:#dbeafe; color:#1a4e78; margin-bottom:8px; }
+
+  /* Nav */
+  .mp-nav { display:flex; align-items:center; justify-content:space-between; padding-top:1.25rem; border-top:0.5px solid var(--color-border-tertiary); gap:12px; }
+  .mp-nav-btn { display:flex; align-items:center; gap:7px; padding:10px 20px; border-radius:var(--border-radius-md); font-size:14px; font-weight:700; font-family:'Nunito',sans-serif; cursor:pointer; border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); transition:background 0.12s; }
+  .mp-nav-btn:hover { background:var(--color-background-secondary); }
+  .mp-nav-btn.primary { background:#1a6eab; color:white; border-color:#1a6eab; }
+  .mp-nav-btn.primary:hover { background:#155a90; border-color:#155a90; }
+  .mp-mark-done { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--color-text-secondary); cursor:pointer; padding:8px 12px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-tertiary); background:var(--color-background-primary); transition:border-color 0.12s, color 0.12s; font-family:'Lato',sans-serif; font-weight:700; }
+  .mp-mark-done:hover { border-color:#1a6eab; color:#1a6eab; }
+  .mp-mark-done.done { border-color:#16a34a; color:#166534; background:#f0fdf4; }
+  .mp-step-dots { display:flex; gap:6px; align-items:center; }
+  .mp-dot { width:8px; height:8px; border-radius:50%; background:var(--color-border-secondary); transition:background 0.2s, width 0.2s; }
+  .mp-dot.active { background:#1a6eab; width:20px; border-radius:99px; }
+  .mp-dot.done-dot { background:#16a34a; }
+</style>
+
+</head><body><h2 class="sr-only">Module 3 — Where to Get Help: academic, student, and technical support services</h2>
+
+<div class="mp-root">
+
+  <div class="mp-breadcrumb">
+    <a href="#">Online Student Orientation</a>
+    <i class="ti ti-chevron-right" aria-hidden="true" style="font-size:13px"></i>
+    <span>Module 3 — Where to Get Help</span>
+  </div>
+
+  <div class="mp-module-bar">
+    <div class="mp-module-bar-left">
+      <span class="mp-mod-badge">Module 3 of 6</span>
+      <h2>Where to Get Help</h2>
+    </div>
+    <div class="mp-time-pill">
+      <i class="ti ti-clock" aria-hidden="true" style="font-size:14px"></i>
+      15–20 min
+    </div>
+  </div>
+
+  <div class="mp-callout">
+    <i class="ti ti-info-circle" aria-hidden="true"></i>
+    <span>The most common reason students struggle online isn't ability — it's waiting too long to ask for help. Bookmark this page. The services below exist specifically for you, and most are free.</span>
+  </div>
+
+  <div class="mp-section">
+    <div class="mp-section-head">
+      <i class="ti ti-lifebuoy" aria-hidden="true"></i>
+      <h3>Find the right support for your situation</h3>
+    </div>
+
+    <div class="mp-cat-pills">
+      <button class="mp-cat-pill active-academic" onclick="showCat('academic', this)">
+        <i class="ti ti-school" aria-hidden="true"></i> Academic support
+      </button>
+      <button class="mp-cat-pill" onclick="showCat('student', this)">
+        <i class="ti ti-heart" aria-hidden="true"></i> Student support
+      </button>
+      <button class="mp-cat-pill" onclick="showCat('tech', this)">
+        <i class="ti ti-tool" aria-hidden="true"></i> Technical help
+      </button>
+    </div>
+
+    <!-- Academic -->
+    <div id="panel-academic" class="mp-support-panel active">
+      <div class="mp-service-grid">
+        <div class="mp-service-card">
+          <div class="mp-service-icon blue"><i class="ti ti-user-circle" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Academic Advising</div>
+          <div class="mp-service-desc">Your advisor helps with degree planning, registration questions, course selection, and academic policy. They are your first call for anything related to your program.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-mail" aria-hidden="true"></i><a href="#">advising@yourcollege.edu</a></div>
+            <div class="mp-contact-row"><i class="ti ti-phone" aria-hidden="true"></i><span>Placeholder — update with your number</span></div>
+            <div class="mp-contact-row"><i class="ti ti-calendar" aria-hidden="true"></i><span>Schedule online via [your scheduling tool]</span></div>
+          </div>
+          <span class="mp-service-tag blue"><i class="ti ti-clock" aria-hidden="true" style="font-size:11px"></i>Mon–Fri, 8am–5pm</span>
+        </div>
+
+        <div class="mp-service-card">
+          <div class="mp-service-icon blue"><i class="ti ti-pencil" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Tutoring Center</div>
+          <div class="mp-service-desc">Free tutoring in math, science, writing, and more. Online sessions available. Don't wait until you're failing — tutors work best when you're a little stuck, not completely lost.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-world" aria-hidden="true"></i><a href="#">Book a session online</a></div>
+            <div class="mp-contact-row"><i class="ti ti-map-pin" aria-hidden="true"></i><span>Building [X], Room [Y] — or via Zoom</span></div>
+          </div>
+          <span class="mp-service-tag blue"><i class="ti ti-currency-dollar" aria-hidden="true" style="font-size:11px"></i>Free for enrolled students</span>
+        </div>
+
+        <div class="mp-service-card">
+          <div class="mp-service-icon blue"><i class="ti ti-writing" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Writing Center</div>
+          <div class="mp-service-desc">Get feedback on any paper at any stage — brainstorming, drafts, or final review. They don't write it for you; they help you write it better.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-world" aria-hidden="true"></i><a href="#">Submit a draft online</a></div>
+            <div class="mp-contact-row"><i class="ti ti-clock" aria-hidden="true"></i><span>Allow 48 hrs for asynchronous feedback</span></div>
+          </div>
+          <span class="mp-service-tag blue"><i class="ti ti-currency-dollar" aria-hidden="true" style="font-size:11px"></i>Free for enrolled students</span>
+        </div>
+
+        <div class="mp-service-card">
+          <div class="mp-service-icon blue"><i class="ti ti-building-library" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Library Services</div>
+          <div class="mp-service-desc">Full database access, research help, interlibrary loans, and citation support — all available online. A librarian can help you find sources in 15 minutes that might take you hours alone.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-message-dots" aria-hidden="true"></i><a href="#">Chat with a librarian (24/7)</a></div>
+            <div class="mp-contact-row"><i class="ti ti-world" aria-hidden="true"></i><a href="#">library.yourcollege.edu</a></div>
+          </div>
+          <span class="mp-service-tag blue"><i class="ti ti-clock" aria-hidden="true" style="font-size:11px"></i>Chat available 24/7</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student -->
+    <div id="panel-student" class="mp-support-panel">
+      <div class="mp-service-grid">
+        <div class="mp-service-card teal">
+          <div class="mp-service-icon teal"><i class="ti ti-heart" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Counseling &amp; Wellness</div>
+          <div class="mp-service-desc">Free and confidential mental health support. Online students can experience isolation — counseling is not just for crises. You don't have to be falling apart to reach out.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-phone" aria-hidden="true"></i><span>Crisis line: [your number]</span></div>
+            <div class="mp-contact-row"><i class="ti ti-world" aria-hidden="true"></i><a href="#">Schedule an appointment online</a></div>
+          </div>
+          <span class="mp-service-tag teal"><i class="ti ti-lock" aria-hidden="true" style="font-size:11px"></i>Confidential</span>
+        </div>
+
+        <div class="mp-service-card teal">
+          <div class="mp-service-icon teal"><i class="ti ti-accessible" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Disability &amp; Accommodations</div>
+          <div class="mp-service-desc">If you have a documented disability, register early — accommodations take time to set up and cannot be applied retroactively to past assignments or exams.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-mail" aria-hidden="true"></i><a href="#">accommodations@yourcollege.edu</a></div>
+            <div class="mp-contact-row"><i class="ti ti-alert-triangle" aria-hidden="true"></i><span>Register before the semester starts</span></div>
+          </div>
+          <span class="mp-service-tag teal"><i class="ti ti-clock" aria-hidden="true" style="font-size:11px"></i>Apply early</span>
+        </div>
+
+        <div class="mp-service-card teal">
+          <div class="mp-service-icon teal"><i class="ti ti-cash" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Financial Aid Office</div>
+          <div class="mp-service-desc">Questions about your aid package, disbursement timing, satisfactory academic progress, or emergency funds. Contact them before a financial issue affects your enrollment.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-mail" aria-hidden="true"></i><a href="#">finaid@yourcollege.edu</a></div>
+            <div class="mp-contact-row"><i class="ti ti-phone" aria-hidden="true"></i><span>Placeholder — add your number</span></div>
+          </div>
+          <span class="mp-service-tag teal"><i class="ti ti-clock" aria-hidden="true" style="font-size:11px"></i>Mon–Fri, 9am–4pm</span>
+        </div>
+
+        <div class="mp-service-card teal">
+          <div class="mp-service-icon teal"><i class="ti ti-hand-stop" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Student Care &amp; Emergency Support</div>
+          <div class="mp-service-desc">Facing a housing crisis, food insecurity, or a family emergency? Student care staff connect you with emergency funds, resources, and advocacy so you can stay enrolled.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-mail" aria-hidden="true"></i><a href="#">studentcare@yourcollege.edu</a></div>
+            <div class="mp-contact-row"><i class="ti ti-world" aria-hidden="true"></i><a href="#">Submit a care request online</a></div>
+          </div>
+          <span class="mp-service-tag teal"><i class="ti ti-currency-dollar" aria-hidden="true" style="font-size:11px"></i>Emergency funds available</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech -->
+    <div id="panel-tech" class="mp-support-panel">
+      <div class="mp-service-grid">
+        <div class="mp-service-card amber">
+          <div class="mp-service-icon amber"><i class="ti ti-layout-dashboard" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Canvas / LMS Support</div>
+          <div class="mp-service-desc">Can't submit an assignment, module locked, quiz won't load? LMS support handles all Canvas technical issues. Your instructor cannot fix Canvas bugs — go here first.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-message-dots" aria-hidden="true"></i><a href="#">Live chat inside Canvas (? icon)</a></div>
+            <div class="mp-contact-row"><i class="ti ti-phone" aria-hidden="true"></i><span>Canvas support: [your number]</span></div>
+          </div>
+          <span class="mp-service-tag amber"><i class="ti ti-clock" aria-hidden="true" style="font-size:11px"></i>24/7 via chat</span>
+        </div>
+
+        <div class="mp-service-card amber">
+          <div class="mp-service-icon amber"><i class="ti ti-lock-open" aria-hidden="true"></i></div>
+          <div class="mp-service-name">Password &amp; Account Help</div>
+          <div class="mp-service-desc">Locked out of your student account, email, or college portal? IT can reset credentials. Have your student ID number ready — they will need it to verify your identity.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-world" aria-hidden="true"></i><a href="#">Self-service password reset</a></div>
+            <div class="mp-contact-row"><i class="ti ti-phone" aria-hidden="true"></i><span>IT Help Desk: [your number]</span></div>
+          </div>
+          <span class="mp-service-tag amber"><i class="ti ti-id" aria-hidden="true" style="font-size:11px"></i>Have your student ID ready</span>
+        </div>
+
+        <div class="mp-service-card amber">
+          <div class="mp-service-icon amber"><i class="ti ti-device-desktop" aria-hidden="true"></i></div>
+          <div class="mp-service-name">General Tech Troubleshooting</div>
+          <div class="mp-service-desc">Browser issues, software installation, webcam problems, or device questions. IT help desk staff can walk you through fixes remotely — you don't need to come in person.</div>
+          <div class="mp-service-contact">
+            <div class="mp-contact-row"><i class="ti ti-mail" aria-hidden="true"></i><a href="#">helpdesk@yourcollege.edu</a></div>
+            <div class="mp-contact-row"><i class="ti ti-world" aria-hidden="true"></i><a href="#">Submit a support ticket online</a></div>
+          </div>
+          <span class="mp-service-tag amber"><i class="ti ti-clock" aria-hidden="true" style="font-size:11px"></i>Mon–Fri, 7am–9pm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mp-section">
+    <div class="mp-section-head">
+      <i class="ti ti-help" aria-hidden="true"></i>
+      <h3>Not sure who to contact? Work through these scenarios</h3>
+    </div>
+    <div class="mp-scenarios">
+
+      <div class="mp-scenario" id="sc0">
+        <div class="mp-scenario-q" onclick="toggleScenario(0)">
+          <i class="ti ti-wifi-off mp-scenario-icon" aria-hidden="true"></i>
+          <span class="mp-scenario-text">"Your internet goes out 30 minutes before an assignment is due. What do you do?"</span>
+          <i class="ti ti-chevron-down mp-scenario-chevron" aria-hidden="true"></i>
+        </div>
+        <div class="mp-scenario-answer">
+          <div class="mp-answer-tag"><i class="ti ti-tool" aria-hidden="true" style="font-size:12px"></i>Technical + Instructor</div>
+          First, activate your Plan B from Module 2 — go to your backup internet location immediately. If you make it and submit late, email your instructor right away explaining what happened and when you submitted. Most instructors are understanding when you communicate proactively. If you can't get internet at all, email your instructor from your phone before the deadline — don't go silent.
+        </div>
+      </div>
+
+      <div class="mp-scenario" id="sc1">
+        <div class="mp-scenario-q" onclick="toggleScenario(1)">
+          <i class="ti ti-calendar-off mp-scenario-icon" aria-hidden="true"></i>
+          <span class="mp-scenario-text">"You've missed two assignments because of a work schedule change. What now?"</span>
+          <i class="ti ti-chevron-down mp-scenario-chevron" aria-hidden="true"></i>
+        </div>
+        <div class="mp-scenario-answer">
+          <div class="mp-answer-tag"><i class="ti ti-school" aria-hidden="true" style="font-size:12px"></i>Instructor + Advising</div>
+          Contact your instructor today — not after the next assignment. Explain the situation honestly and ask if any late work is accepted. Then contact your academic advisor to understand how the missed work affects your grade and what your options are. Don't disappear after a hard week — that's when students fall into a cycle that ends in withdrawal.
+        </div>
+      </div>
+
+      <div class="mp-scenario" id="sc2">
+        <div class="mp-scenario-q" onclick="toggleScenario(2)">
+          <i class="ti ti-message-question mp-scenario-icon" aria-hidden="true"></i>
+          <span class="mp-scenario-text">"You don't understand the feedback on a graded assignment. Who do you contact?"</span>
+          <i class="ti ti-chevron-down mp-scenario-chevron" aria-hidden="true"></i>
+        </div>
+        <div class="mp-scenario-answer">
+          <div class="mp-answer-tag"><i class="ti ti-user" aria-hidden="true" style="font-size:12px"></i>Your Instructor</div>
+          Email your instructor directly. Reference the specific assignment and the comment you don't understand — copy and paste it into your email if it helps. Ask something concrete: "You mentioned my thesis was unclear — can you help me understand what a stronger thesis would look like here?" Instructors appreciate specific questions far more than "I don't understand my grade."
+        </div>
+      </div>
+
+      <div class="mp-scenario" id="sc3">
+        <div class="mp-scenario-q" onclick="toggleScenario(3)">
+          <i class="ti ti-mood-sad mp-scenario-icon" aria-hidden="true"></i>
+          <span class="mp-scenario-text">"You're feeling overwhelmed and considering dropping out. Who can help?"</span>
+          <i class="ti ti-chevron-down mp-scenario-chevron" aria-hidden="true"></i>
+        </div>
+        <div class="mp-scenario-answer">
+          <div class="mp-answer-tag"><i class="ti ti-heart" aria-hidden="true" style="font-size:12px"></i>Student Care + Counseling + Advising</div>
+          Please reach out before making any decisions. Contact Student Care — they exist for exactly this moment and can connect you to emergency support, counseling, and academic options you may not know about. Withdrawing has financial aid and academic consequences that are hard to undo. Talking to someone first costs nothing and might change everything.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="mp-nav">
+    <button class="mp-nav-btn" onclick="goPrev()">
+      <i class="ti ti-arrow-left" aria-hidden="true"></i> Previous
+    </button>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div class="mp-step-dots">
+        <div class="mp-dot done-dot"></div>
+        <div class="mp-dot done-dot"></div>
+        <div class="mp-dot active"></div>
+        <div class="mp-dot"></div>
+        <div class="mp-dot"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <button class="mp-mark-done" id="mark-btn" onclick="markDone()">
+        <i class="ti ti-circle-check" aria-hidden="true" style="font-size:15px"></i>
+        <span id="mark-label">Mark as done</span>
+      </button>
+    </div>
+    <button class="mp-nav-btn primary" onclick="goNext()">
+      Next <i class="ti ti-arrow-right" aria-hidden="true"></i>
+    </button>
+  </div>
+
+</div>
+
+<script>
+  function showCat(name, el) {
+    document.querySelectorAll('.mp-support-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.mp-cat-pill').forEach(p => p.className = 'mp-cat-pill');
+    document.getElementById('panel-' + name).classList.add('active');
+    el.classList.add('active-' + name);
+  }
+
+  function toggleScenario(idx) {
+    const sc = document.getElementById('sc' + idx);
+    sc.classList.toggle('open');
+  }
+
+  let done = false;
+  function markDone() {
+    done = !done;
+    const btn = document.getElementById('mark-btn');
+    btn.classList.toggle('done', done);
+    btn.querySelector('i').className = done ? 'ti ti-circle-check-filled' : 'ti ti-circle-check';
+    document.getElementById('mark-label').textContent = done ? 'Marked as done' : 'Mark as done';
+    const dots = document.querySelectorAll('.mp-dot');
+    dots[2].classList.toggle('done-dot', done);
+    if (done) dots[2].classList.remove('active');
+    else dots[2].classList.add('active');
+  }
+
+  function goPrev() { sendPrompt('Go back to Module 2 — Technology & LMS Survival Skills'); }
+  function goNext() { sendPrompt('Show me Module 4 — Communication & Professionalism'); }
+</script>
+</body></html>

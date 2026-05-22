@@ -1,0 +1,403 @@
+<html>
+								<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
+							<head><style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lato:wght@400;700&display=swap');
+
+  .mp-root { font-family:'Lato',sans-serif; color:var(--color-text-primary); max-width:860px; margin:0 auto; padding:0 0 2rem; }
+
+  .mp-breadcrumb { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--color-text-secondary); margin-bottom:1.25rem; }
+  .mp-breadcrumb a { color:#1a6eab; text-decoration:none; font-weight:600; }
+
+  .mp-module-bar { background:#1a6eab; border-radius:var(--border-radius-lg); padding:14px 20px; display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem; }
+  .mp-module-bar-left { display:flex; align-items:center; gap:12px; }
+  .mp-mod-badge { background:rgba(255,255,255,0.18); color:white; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:4px 10px; border-radius:99px; }
+  .mp-module-bar h2 { font-family:'Nunito',sans-serif; font-size:17px; font-weight:800; color:white; margin:0; }
+  .mp-time-pill { display:flex; align-items:center; gap:5px; background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.92); font-size:12px; padding:5px 12px; border-radius:99px; flex-shrink:0; }
+
+  .mp-section { margin-bottom:1.75rem; }
+  .mp-section-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; padding-bottom:8px; border-bottom:0.5px solid var(--color-border-tertiary); }
+  .mp-section-head i { color:#1a6eab; font-size:20px; }
+  .mp-section-head h3 { font-family:'Nunito',sans-serif; font-size:16px; font-weight:700; margin:0; }
+
+  .mp-callout { background:#eff6ff; border-left:3px solid #1a6eab; border-radius:0 var(--border-radius-md) var(--border-radius-md) 0; padding:12px 16px; font-size:14px; color:#1a4e78; margin-bottom:1.25rem; display:flex; align-items:flex-start; gap:10px; }
+  .mp-callout i { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .mp-callout.warn { background:#fffbeb; border-color:#f59e0b; color:#92400e; }
+  .mp-callout.red { background:#fef2f2; border-color:#dc2626; color:#991b1b; }
+
+  /* Stat cards */
+  .mp-stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:1.5rem; }
+  .mp-stat { background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:14px; text-align:center; }
+  .mp-stat-num { font-family:'Nunito',sans-serif; font-size:24px; font-weight:800; color:#1a6eab; }
+  .mp-stat-label { font-size:12px; color:var(--color-text-secondary); margin-top:2px; line-height:1.4; }
+
+  /* Warning signs */
+  .mp-warn-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-bottom:1rem; }
+  .mp-warn-card { background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:13px 14px; display:flex; gap:10px; align-items:flex-start; }
+  .mp-warn-card i.icon { font-size:18px; color:#b45309; flex-shrink:0; margin-top:1px; }
+  .mp-warn-text { font-size:13px; line-height:1.5; color:var(--color-text-primary); }
+
+  /* Schedule builder */
+  .mp-builder { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); overflow:hidden; }
+  .mp-builder-header { background:#1a6eab; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  .mp-builder-title { font-family:'Nunito',sans-serif; font-weight:800; font-size:15px; color:white; display:flex; align-items:center; gap:8px; }
+  .mp-builder-summary { font-size:12px; color:rgba(255,255,255,0.85); }
+
+  .mp-builder-legend { display:flex; gap:12px; padding:12px 16px; background:var(--color-background-secondary); border-bottom:0.5px solid var(--color-border-tertiary); flex-wrap:wrap; align-items:center; }
+  .mp-legend-label { font-size:11px; font-weight:700; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.06em; margin-right:4px; }
+  .mp-legend-item { display:flex; align-items:center; gap:5px; font-size:12px; color:var(--color-text-secondary); cursor:pointer; padding:4px 10px; border-radius:99px; border:0.5px solid var(--color-border-tertiary); transition:all 0.12s; }
+  .mp-legend-item:hover { border-color:#1a6eab; }
+  .mp-legend-item.sel { border-color:transparent; color:white; font-weight:700; }
+  .mp-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+  .mp-grid-wrap { overflow-x:auto; padding:12px 16px 16px; }
+  .mp-grid { display:grid; grid-template-columns:52px repeat(7,1fr); gap:2px; min-width:520px; }
+  .mp-grid-head { font-size:11px; font-weight:700; text-align:center; padding:4px 2px; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.04em; }
+  .mp-time-label { font-size:11px; color:var(--color-text-secondary); text-align:right; padding-right:8px; line-height:28px; height:28px; }
+  .mp-cell { height:28px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); cursor:pointer; transition:all 0.1s; }
+  .mp-cell:hover { border-color:#1a6eab; }
+  .mp-cell.work    { background:#fde68a; border-color:#f59e0b; }
+  .mp-cell.family  { background:#bbf7d0; border-color:#16a34a; }
+  .mp-cell.study   { background:#bfdbfe; border-color:#1a6eab; }
+  .mp-cell.sleep   { background:#e9d5ff; border-color:#7c3aed; }
+
+  .mp-builder-footer { padding:12px 16px; border-top:0.5px solid var(--color-border-tertiary); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; background:var(--color-background-secondary); }
+  .mp-hours-summary { display:flex; gap:14px; flex-wrap:wrap; }
+  .mp-hour-chip { display:flex; align-items:center; gap:5px; font-size:12px; font-weight:700; }
+  .mp-hour-dot { width:10px; height:10px; border-radius:50%; }
+  .mp-builder-btns { display:flex; gap:8px; }
+  .mp-clear-btn { padding:7px 14px; border-radius:var(--border-radius-md); font-size:13px; font-weight:700; font-family:'Nunito',sans-serif; cursor:pointer; border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-secondary); transition:all 0.12s; }
+  .mp-clear-btn:hover { border-color:#dc2626; color:#dc2626; }
+  .mp-save-btn { padding:7px 16px; border-radius:var(--border-radius-md); font-size:13px; font-weight:700; font-family:'Nunito',sans-serif; cursor:pointer; border:none; background:#1a6eab; color:white; transition:background 0.12s; display:flex; align-items:center; gap:6px; }
+  .mp-save-btn:hover { background:#155a90; }
+  .mp-save-btn.saved { background:#16a34a; }
+
+  /* Tips */
+  .mp-tips { display:flex; flex-direction:column; gap:8px; }
+  .mp-tip { display:flex; gap:12px; align-items:flex-start; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:12px 14px; }
+  .mp-tip-num { width:26px; height:26px; border-radius:50%; background:#1a6eab; color:white; font-family:'Nunito',sans-serif; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .mp-tip-body { font-size:13px; line-height:1.6; color:var(--color-text-primary); }
+  .mp-tip-body strong { font-weight:700; }
+
+  /* Nav */
+  .mp-nav { display:flex; align-items:center; justify-content:space-between; padding-top:1.25rem; border-top:0.5px solid var(--color-border-tertiary); gap:12px; }
+  .mp-nav-btn { display:flex; align-items:center; gap:7px; padding:10px 20px; border-radius:var(--border-radius-md); font-size:14px; font-weight:700; font-family:'Nunito',sans-serif; cursor:pointer; border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); transition:background 0.12s; }
+  .mp-nav-btn:hover { background:var(--color-background-secondary); }
+  .mp-nav-btn.primary { background:#1a6eab; color:white; border-color:#1a6eab; }
+  .mp-nav-btn.primary:hover { background:#155a90; }
+  .mp-mark-done { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--color-text-secondary); cursor:pointer; padding:8px 12px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-tertiary); background:var(--color-background-primary); transition:border-color 0.12s, color 0.12s; font-family:'Lato',sans-serif; font-weight:700; }
+  .mp-mark-done:hover { border-color:#1a6eab; color:#1a6eab; }
+  .mp-mark-done.done { border-color:#16a34a; color:#166534; background:#f0fdf4; }
+  .mp-step-dots { display:flex; gap:6px; align-items:center; }
+  .mp-dot { width:8px; height:8px; border-radius:50%; background:var(--color-border-secondary); transition:background 0.2s, width 0.2s; }
+  .mp-dot.active { background:#1a6eab; width:20px; border-radius:99px; }
+  .mp-dot.done-dot { background:#16a34a; }
+</style>
+
+</head><body><h2 class="sr-only">Module 5 — Time Management and Study Success with interactive weekly schedule builder</h2>
+
+<div class="mp-root">
+
+  <div class="mp-breadcrumb">
+    <a href="#">Online Student Orientation</a>
+    <i class="ti ti-chevron-right" aria-hidden="true" style="font-size:13px"></i>
+    <span>Module 5 — Time Management &amp; Study Success</span>
+  </div>
+
+  <div class="mp-module-bar">
+    <div class="mp-module-bar-left">
+      <span class="mp-mod-badge">Module 5 of 6</span>
+      <h2>Time Management &amp; Study Success</h2>
+    </div>
+    <div class="mp-time-pill">
+      <i class="ti ti-clock" aria-hidden="true" style="font-size:14px"></i>
+      20–25 min
+    </div>
+  </div>
+
+  <div class="mp-callout">
+    <i class="ti ti-info-circle" aria-hidden="true"></i>
+    <span>Online learning gives you flexibility — but flexibility only works when you have structure underneath it. This module helps you build that structure before the semester gets away from you.</span>
+  </div>
+
+  <!-- Reality of workload -->
+  <div class="mp-section">
+    <div class="mp-section-head">
+      <i class="ti ti-chart-bar" aria-hidden="true"></i>
+      <h3>The reality of online workload</h3>
+    </div>
+    <div class="mp-stat-row">
+      <div class="mp-stat">
+        <div class="mp-stat-num">2–3 hrs</div>
+        <div class="mp-stat-label">of total work per credit hour, per week</div>
+      </div>
+      <div class="mp-stat">
+        <div class="mp-stat-num">6–9 hrs</div>
+        <div class="mp-stat-label">expected per week for a typical 3-credit course</div>
+      </div>
+      <div class="mp-stat">
+        <div class="mp-stat-num">Daily</div>
+        <div class="mp-stat-label">how often successful students log in to Canvas</div>
+      </div>
+    </div>
+    <div class="mp-callout warn">
+      <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+      <span>Deadlines in online courses arrive fast — often faster than students expect. Unlike a lecture that reminds you something is due, Canvas just closes the submission window. Check due dates every week, not the day before.</span>
+    </div>
+  </div>
+
+  <!-- Warning signs -->
+  <div class="mp-section">
+    <div class="mp-section-head">
+      <i class="ti ti-alert-circle" aria-hidden="true"></i>
+      <h3>Warning signs to watch for in yourself</h3>
+    </div>
+    <div class="mp-warn-grid">
+      <div class="mp-warn-card">
+        <i class="ti ti-bell-off icon" aria-hidden="true"></i>
+        <div class="mp-warn-text">Skipping announcements or not logging in for several days</div>
+      </div>
+      <div class="mp-warn-card">
+        <i class="ti ti-clock icon" aria-hidden="true"></i>
+        <div class="mp-warn-text">Waiting until the day of the deadline to start reading or writing</div>
+      </div>
+      <div class="mp-warn-card">
+        <i class="ti ti-trending-down icon" aria-hidden="true"></i>
+        <div class="mp-warn-text">Missing one assignment, then disengaging from the course entirely</div>
+      </div>
+      <div class="mp-warn-card">
+        <i class="ti ti-messages-off icon" aria-hidden="true"></i>
+        <div class="mp-warn-text">Going silent — not emailing your instructor or participating in discussions</div>
+      </div>
+      <div class="mp-warn-card">
+        <i class="ti ti-stack icon" aria-hidden="true"></i>
+        <div class="mp-warn-text">Letting readings pile up with a plan to "catch up on the weekend"</div>
+      </div>
+      <div class="mp-warn-card">
+        <i class="ti ti-mood-sad icon" aria-hidden="true"></i>
+        <div class="mp-warn-text">Feeling like you're too far behind to bother — you're not. Contact someone.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule builder -->
+  <div class="mp-section">
+    <div class="mp-section-head">
+      <i class="ti ti-calendar" aria-hidden="true"></i>
+      <h3>Activity — build your weekly schedule</h3>
+    </div>
+
+    <div class="mp-callout" style="margin-bottom:1rem;">
+      <i class="ti ti-hand-click" aria-hidden="true"></i>
+      <span>Select a block type below, then click cells on the grid to map out your week. Once you can see your work, family, and sleep commitments, your available study windows will become obvious.</span>
+    </div>
+
+    <div class="mp-builder">
+      <div class="mp-builder-header">
+        <div class="mp-builder-title"><i class="ti ti-calendar-week" aria-hidden="true"></i> My weekly schedule</div>
+        <div class="mp-builder-summary" id="study-alert"></div>
+      </div>
+
+      <div class="mp-builder-legend">
+        <span class="mp-legend-label">Painting with:</span>
+        <div class="mp-legend-item sel" id="leg-work" style="background:#f59e0b;border-color:#f59e0b;" onclick="setMode('work',this)">  <div class="mp-legend-dot" style="background:#fef3c7;"></div> Work</div>
+        <div class="mp-legend-item" id="leg-family" onclick="setMode('family',this)"><div class="mp-legend-dot" style="background:#16a34a;"></div> Family / commitments</div>
+        <div class="mp-legend-item" id="leg-study" onclick="setMode('study',this)"> <div class="mp-legend-dot" style="background:#1a6eab;"></div> Study time</div>
+        <div class="mp-legend-item" id="leg-sleep" onclick="setMode('sleep',this)"> <div class="mp-legend-dot" style="background:#7c3aed;"></div> Sleep</div>
+        <div class="mp-legend-item" id="leg-clear" onclick="setMode('clear',this)" style="margin-left:auto;"> <i class="ti ti-eraser" aria-hidden="true" style="font-size:13px"></i> Erase</div>
+      </div>
+
+      <div class="mp-grid-wrap">
+        <div class="mp-grid" id="schedule-grid"></div>
+      </div>
+
+      <div class="mp-builder-footer">
+        <div class="mp-hours-summary">
+          <div class="mp-hour-chip"><div class="mp-hour-dot" style="background:#f59e0b;"></div><span id="h-work">0h work</span></div>
+          <div class="mp-hour-chip"><div class="mp-hour-dot" style="background:#16a34a;"></div><span id="h-family">0h family</span></div>
+          <div class="mp-hour-chip"><div class="mp-hour-dot" style="background:#1a6eab;"></div><span id="h-study">0h study</span></div>
+          <div class="mp-hour-chip"><div class="mp-hour-dot" style="background:#7c3aed;"></div><span id="h-sleep">0h sleep</span></div>
+        </div>
+        <div class="mp-builder-btns">
+          <button class="mp-clear-btn" onclick="clearAll()">Clear all</button>
+          <button class="mp-save-btn" id="save-sched" onclick="saveSched()"><i class="ti ti-device-floppy" aria-hidden="true"></i><span id="save-label">Save schedule</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strategies -->
+  <div class="mp-section">
+    <div class="mp-section-head">
+      <i class="ti ti-bulb" aria-hidden="true"></i>
+      <h3>Strategies that actually work</h3>
+    </div>
+    <div class="mp-tips">
+      <div class="mp-tip">
+        <div class="mp-tip-num">1</div>
+        <div class="mp-tip-body"><strong>Schedule study time like a class.</strong> Block it in your calendar with a specific start and end time. "I'll study when I have time" means you won't study.</div>
+      </div>
+      <div class="mp-tip">
+        <div class="mp-tip-num">2</div>
+        <div class="mp-tip-body"><strong>Break assignments into smaller tasks.</strong> "Write essay" is not a task — it's a project. "Write thesis sentence," "outline three body points," and "draft introduction" are tasks you can actually do in a single session.</div>
+      </div>
+      <div class="mp-tip">
+        <div class="mp-tip-num">3</div>
+        <div class="mp-tip-body"><strong>Check Canvas every day.</strong> Even 5 minutes — scan announcements, check for new feedback, confirm nothing is due tomorrow you forgot about.</div>
+      </div>
+      <div class="mp-tip">
+        <div class="mp-tip-num">4</div>
+        <div class="mp-tip-body"><strong>Protect at least two solid study blocks per course per week.</strong> Shorter daily sessions beat a single four-hour Sunday marathon — and leave you less desperate when life intervenes.</div>
+      </div>
+      <div class="mp-tip">
+        <div class="mp-tip-num">5</div>
+        <div class="mp-tip-body"><strong>Act immediately when you fall behind.</strong> One missed assignment is recoverable. Three missed assignments and two weeks of silence is not. The moment you slip, reach out.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mp-nav">
+    <button class="mp-nav-btn" onclick="goPrev()">
+      <i class="ti ti-arrow-left" aria-hidden="true"></i> Previous
+    </button>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div class="mp-step-dots">
+        <div class="mp-dot done-dot"></div>
+        <div class="mp-dot done-dot"></div>
+        <div class="mp-dot done-dot"></div>
+        <div class="mp-dot done-dot"></div>
+        <div class="mp-dot active"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <button class="mp-mark-done" id="mark-btn" onclick="markDone()">
+        <i class="ti ti-circle-check" aria-hidden="true" style="font-size:15px"></i>
+        <span id="mark-label">Mark as done</span>
+      </button>
+    </div>
+    <button class="mp-nav-btn primary" onclick="goNext()">
+      Next <i class="ti ti-arrow-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+  const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const HOURS = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm','9pm','10pm','11pm'];
+  const COLORS = { work:'work', family:'family', study:'study', sleep:'sleep' };
+  const grid = {};
+  let mode = 'work';
+  let painting = false;
+
+  function buildGrid() {
+    const g = document.getElementById('schedule-grid');
+    g.innerHTML = '';
+    const corner = document.createElement('div');
+    g.appendChild(corner);
+    DAYS.forEach(d => {
+      const h = document.createElement('div');
+      h.className = 'mp-grid-head';
+      h.textContent = d;
+      g.appendChild(h);
+    });
+    HOURS.forEach((hr, hi) => {
+      const tl = document.createElement('div');
+      tl.className = 'mp-time-label';
+      tl.textContent = hr;
+      g.appendChild(tl);
+      DAYS.forEach((d, di) => {
+        const key = `${di}-${hi}`;
+        const cell = document.createElement('div');
+        cell.className = 'mp-cell';
+        cell.dataset.key = key;
+        cell.addEventListener('mousedown', () => { painting = true; paint(key, cell); });
+        cell.addEventListener('mouseenter', () => { if (painting) paint(key, cell); });
+        cell.addEventListener('mouseup', () => { painting = false; });
+        g.appendChild(cell);
+      });
+    });
+    document.addEventListener('mouseup', () => { painting = false; });
+  }
+
+  function paint(key, cell) {
+    if (mode === 'clear') {
+      delete grid[key];
+      cell.className = 'mp-cell';
+    } else {
+      grid[key] = mode;
+      cell.className = 'mp-cell ' + mode;
+    }
+    updateSummary();
+  }
+
+  function setMode(m, el) {
+    mode = m;
+    document.querySelectorAll('.mp-legend-item').forEach(li => {
+      li.classList.remove('sel');
+      li.style.background = '';
+      li.style.borderColor = '';
+      li.style.color = '';
+    });
+    el.classList.add('sel');
+    const colors = { work:'#f59e0b', family:'#16a34a', study:'#1a6eab', sleep:'#7c3aed', clear:'#6b7280' };
+    if (colors[m]) { el.style.background = colors[m]; el.style.borderColor = colors[m]; el.style.color = 'white'; }
+  }
+
+  function updateSummary() {
+    const counts = { work:0, family:0, study:0, sleep:0 };
+    Object.values(grid).forEach(v => { if (counts[v] !== undefined) counts[v]++; });
+    document.getElementById('h-work').textContent   = counts.work   + 'h work';
+    document.getElementById('h-family').textContent = counts.family + 'h family';
+    document.getElementById('h-study').textContent  = counts.study  + 'h study';
+    document.getElementById('h-sleep').textContent  = counts.sleep  + 'h sleep';
+    const alert = document.getElementById('study-alert');
+    if (counts.study === 0) { alert.textContent = ''; }
+    else if (counts.study < 6) { alert.textContent = counts.study + 'h study — aim for 6+ hrs per course'; }
+    else { alert.textContent = '✓ ' + counts.study + 'h of study time blocked'; }
+  }
+
+  function clearAll() {
+    Object.keys(grid).forEach(k => delete grid[k]);
+    document.querySelectorAll('.mp-cell').forEach(c => c.className = 'mp-cell');
+    updateSummary();
+  }
+
+  function saveSched() {
+    const btn = document.getElementById('save-sched');
+    const lbl = document.getElementById('save-label');
+    btn.classList.add('saved');
+    btn.querySelector('i').className = 'ti ti-check';
+    lbl.textContent = 'Schedule saved!';
+    setTimeout(() => {
+      btn.classList.remove('saved');
+      btn.querySelector('i').className = 'ti ti-device-floppy';
+      lbl.textContent = 'Save schedule';
+    }, 2500);
+  }
+
+  let done = false;
+  function markDone() {
+    done = !done;
+    const btn = document.getElementById('mark-btn');
+    btn.classList.toggle('done', done);
+    btn.querySelector('i').className = done ? 'ti ti-circle-check-filled' : 'ti ti-circle-check';
+    document.getElementById('mark-label').textContent = done ? 'Marked as done' : 'Mark as done';
+    const dots = document.querySelectorAll('.mp-dot');
+    dots[4].classList.toggle('done-dot', done);
+    if (done) dots[4].classList.remove('active');
+    else dots[4].classList.add('active');
+  }
+
+  function goPrev() { sendPrompt('Go back to Module 4 — Communication & Professionalism'); }
+  function goNext() { sendPrompt('Show me Module 6 — Final Readiness Check & Success Plan'); }
+
+  buildGrid();
+  updateSummary();
+</script>
+</body></html>
