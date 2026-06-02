@@ -488,30 +488,51 @@
   <link rel="stylesheet" href="html5/data/css/output.min.css" data-noprefix/>
   <script>
 (() => {
-  function forceTop() {
+  function fixLayout() {
     const slide = document.getElementById("slide");
-    if (slide) {
-      slide.style.setProperty("transform", "translate(0px, 0px)", "important");
-      slide.style.setProperty("top", "0px", "important");
-    }
-
     const wrapper = document.getElementById("wrapper");
-    if (wrapper) {
-      wrapper.style.setProperty("overflow", "hidden", "important");
-      wrapper.style.setProperty("background", "#ffffff", "important");
+    const app = document.getElementById("app");
+
+    if (slide) {
+      slide.style.setProperty("top", "0px", "important");
+      slide.style.setProperty("left", "0px", "important");
+      slide.style.setProperty("transform", "translate(0px, 0px)", "important");
+      slide.style.setProperty("margin", "0", "important");
     }
 
+    if (wrapper) {
+      const slideHeight = slide ? slide.offsetHeight : 621;
+
+      wrapper.style.setProperty("position", "absolute", "important");
+      wrapper.style.setProperty("left", "0px", "important");
+      wrapper.style.setProperty("top", "0px", "important");
+      wrapper.style.setProperty("width", "100vw", "important");
+      wrapper.style.setProperty("height", slideHeight + "px", "important");
+      wrapper.style.setProperty("transform", "none", "important");
+      wrapper.style.setProperty("overflow", "hidden", "important");
+      wrapper.style.setProperty("margin", "0", "important");
+      wrapper.style.setProperty("padding", "0", "important");
+    }
+
+    if (app) {
+      app.style.setProperty("height", "100vh", "important");
+      app.style.setProperty("overflow", "hidden", "important");
+    }
+
+    document.documentElement.style.setProperty("background", "#ffffff", "important");
     document.body.style.setProperty("background", "#ffffff", "important");
+    document.body.style.setProperty("margin", "0", "important");
+    document.body.style.setProperty("overflow", "hidden", "important");
   }
 
   window.addEventListener("load", () => {
-    forceTop();
-    setTimeout(forceTop, 100);
-    setTimeout(forceTop, 500);
-    setTimeout(forceTop, 1000);
+    fixLayout();
+    setTimeout(fixLayout, 100);
+    setTimeout(fixLayout, 500);
+    setTimeout(fixLayout, 1000);
   });
 
-  window.addEventListener("resize", forceTop);
+  window.addEventListener("resize", fixLayout);
 })();
 </script>
 </body>
