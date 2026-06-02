@@ -10,8 +10,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <style>
   html, body {
-    height: 100%;
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -19,12 +19,12 @@
   }
 
   #app {
-    height: 100%;
     width: 100%;
+    height: 100%;
     background: #ffffff;
   }
 </style>
-
+  
   <script>
     window.DS = {};
     window.globals = {
@@ -496,25 +496,27 @@
     if (slide) {
       slide.style.setProperty("top", "0px", "important");
       slide.style.setProperty("left", "0px", "important");
-      slide.style.setProperty("transform", "translate(0px, 0px)", "important");
       slide.style.setProperty("margin", "0", "important");
+      slide.style.setProperty("transform", "translate(0px, 0px)", "important");
     }
 
     if (wrapper) {
-      const slideHeight = slide ? slide.offsetHeight : 621;
+      const h = slide ? slide.offsetHeight : 621;
 
       wrapper.style.setProperty("position", "absolute", "important");
-      wrapper.style.setProperty("left", "0px", "important");
       wrapper.style.setProperty("top", "0px", "important");
-      wrapper.style.setProperty("width", "100vw", "important");
-      wrapper.style.setProperty("height", slideHeight + "px", "important");
-      wrapper.style.setProperty("transform", "none", "important");
-      wrapper.style.setProperty("overflow", "hidden", "important");
+      wrapper.style.setProperty("left", "0px", "important");
       wrapper.style.setProperty("margin", "0", "important");
       wrapper.style.setProperty("padding", "0", "important");
+      wrapper.style.setProperty("overflow", "hidden", "important");
+      wrapper.style.setProperty("width", "100vw", "important");
+      wrapper.style.setProperty("height", h + "px", "important");
+      wrapper.style.setProperty("transform", "none", "important");
+      wrapper.style.setProperty("transform-origin", "0 0", "important");
     }
 
     if (app) {
+      app.style.setProperty("width", "100vw", "important");
       app.style.setProperty("height", "100vh", "important");
       app.style.setProperty("overflow", "hidden", "important");
     }
@@ -525,14 +527,29 @@
     document.body.style.setProperty("overflow", "hidden", "important");
   }
 
-  window.addEventListener("load", () => {
+  function startFix() {
     fixLayout();
-    setTimeout(fixLayout, 100);
-    setTimeout(fixLayout, 500);
+    requestAnimationFrame(fixLayout);
+    setTimeout(fixLayout, 50);
+    setTimeout(fixLayout, 250);
     setTimeout(fixLayout, 1000);
-  });
 
-  window.addEventListener("resize", fixLayout);
+    const obs = new MutationObserver(fixLayout);
+    obs.observe(document.documentElement, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ["style", "class"]
+    });
+
+    window.addEventListener("resize", fixLayout);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startFix);
+  } else {
+    startFix();
+  }
 })();
 </script>
 </body>
