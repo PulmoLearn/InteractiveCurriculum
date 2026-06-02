@@ -493,6 +493,34 @@
   
 
   <link rel="stylesheet" href="html5/data/css/output.min.css" data-noprefix/>
+  <script>
+window.addEventListener("load", () => {
+  const white = "#ffffff";
+
+  const selectors = [
+    "html",
+    "body",
+    "#app",
+    "#wrapper",
+    "#slide",
+    ".window-slide",
+    ".slide-container",
+    ".slide-window-slide-container",
+    ".slide-transition-container",
+    ".slide-layer",
+    ".slide-top-container-main",
+    ".load-container",
+  ];
+
+  selectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.style.setProperty("background", white, "important");
+      el.style.setProperty("background-color", white, "important");
+      el.style.setProperty("overflow", "hidden", "important");
+    });
+  });
+});
+</script>
 </body>
 <script src="html5/lib/scripts/bootstrapper.min.js"></script>
 </html>
