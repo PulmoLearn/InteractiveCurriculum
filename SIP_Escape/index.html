@@ -9,26 +9,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,shrink-to-fit=no,minimal-ui"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <style>
-    <style>
-  html,
-  body {
+  html, body {
     height: 100%;
-    width: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
-    background: #ffffff !important;
+    background: #ffffff;
   }
 
   #app {
     height: 100%;
     width: 100%;
-    background: #ffffff !important;
   }
 
-  #wrapper,
   #slide {
-    background: #ffffff !important;
+    transform: translate(0px, 0px) !important;
+    top: 0 !important;
   }
 </style>
 
@@ -494,31 +489,16 @@
 
   <link rel="stylesheet" href="html5/data/css/output.min.css" data-noprefix/>
   <script>
-window.addEventListener("load", () => {
-  const white = "#ffffff";
+window.addEventListener("load", function () {
+  const slide = document.getElementById("slide");
 
-  const selectors = [
-    "html",
-    "body",
-    "#app",
-    "#wrapper",
-    "#slide",
-    ".window-slide",
-    ".slide-container",
-    ".slide-window-slide-container",
-    ".slide-transition-container",
-    ".slide-layer",
-    ".slide-top-container-main",
-    ".load-container",
-  ];
-
-  selectors.forEach((selector) => {
-    document.querySelectorAll(selector).forEach((el) => {
-      el.style.setProperty("background", white, "important");
-      el.style.setProperty("background-color", white, "important");
-      el.style.setProperty("overflow", "hidden", "important");
-    });
-  });
+  if (slide) {
+    slide.style.setProperty(
+      "transform",
+      "translate(0px, 0px)",
+      "important"
+    );
+  }
 });
 </script>
 </body>
