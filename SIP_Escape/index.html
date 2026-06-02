@@ -11,19 +11,17 @@
   <style>
   html, body {
     height: 100%;
-    padding: 0;
+    width: 100%;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
     background: #ffffff;
   }
 
   #app {
     height: 100%;
     width: 100%;
-  }
-
-  #slide {
-    transform: translate(0px, 0px) !important;
-    top: 0 !important;
+    background: #ffffff;
   }
 </style>
 
@@ -489,17 +487,32 @@
 
   <link rel="stylesheet" href="html5/data/css/output.min.css" data-noprefix/>
   <script>
-window.addEventListener("load", function () {
-  const slide = document.getElementById("slide");
+(() => {
+  function forceTop() {
+    const slide = document.getElementById("slide");
+    if (slide) {
+      slide.style.setProperty("transform", "translate(0px, 0px)", "important");
+      slide.style.setProperty("top", "0px", "important");
+    }
 
-  if (slide) {
-    slide.style.setProperty(
-      "transform",
-      "translate(0px, 0px)",
-      "important"
-    );
+    const wrapper = document.getElementById("wrapper");
+    if (wrapper) {
+      wrapper.style.setProperty("overflow", "hidden", "important");
+      wrapper.style.setProperty("background", "#ffffff", "important");
+    }
+
+    document.body.style.setProperty("background", "#ffffff", "important");
   }
-});
+
+  window.addEventListener("load", () => {
+    forceTop();
+    setTimeout(forceTop, 100);
+    setTimeout(forceTop, 500);
+    setTimeout(forceTop, 1000);
+  });
+
+  window.addEventListener("resize", forceTop);
+})();
 </script>
 </body>
 <script src="html5/lib/scripts/bootstrapper.min.js"></script>
